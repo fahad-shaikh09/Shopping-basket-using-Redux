@@ -1,24 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+// import blue from "./Images/blue.png"
+// import green from "./Images/green.png"
+// import red from "./Images/red.png"
+import DisplayShirts from "./components/DisplayShirts";
+import { useSelector } from "react-redux"
+
 
 function App() {
+  let products = []
+  products = useSelector(state => state)
+  const itemsInCart = products[3].itemsInCart
+  
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Shopping Basket</h1>
+      <h2>You have {itemsInCart} items in Cart!</h2>
+
+      <div className="App">
+        <DisplayShirts />
+      </div>
+
+
+
+
     </div>
   );
 }
