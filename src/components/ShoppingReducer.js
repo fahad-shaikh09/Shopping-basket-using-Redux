@@ -6,7 +6,7 @@ export const initialState = [{
     id: 1,
     title: "Green Shirt",
     itemPrice: 1000,
-    desc: "Loem ipsum........",
+    desc: "Lorem ipsum dolor sit amet, postea latine vidisse vim an, no iusto putent qui, mollis euismod adversarium vim ex. Velit mucius integre eam ex.",
     color: "green",
     src: green,
     isAdded: false
@@ -15,7 +15,7 @@ export const initialState = [{
     id: 2,
     title: "Red Shirt",
     itemPrice: 2000,
-    desc: "Loem ipsum........",
+    desc: "Lorem ipsum dolor sit amet, postea latine vidisse vim an, no iusto putent qui, mollis euismod adversarium vim ex. Velit mucius integre eam ex.",
     color: "red",
     src: red,
     isAdded: false
@@ -24,28 +24,19 @@ export const initialState = [{
     id: 3,
     title: "Blue Shirt",
     itemPrice: 1000,
-    desc: "Loem ipsum........",
+    desc: "Lorem ipsum dolor sit amet, postea latine vidisse vim an, no iusto putent qui, mollis euismod adversarium vim ex. Velit mucius integre eam ex.",
     color: "blue",
     src: blue,
     isAdded: false,
-},
-{
-    itemsInCart: 0
-}
-]
+}]
 
 export default function ShoppingReducer(state = initialState, action) {
-    switch (action.type) {
+    switch (action) {
         case "ADDTOCART":
-            return { ...state, isAdded: true, itemsInCart: state.itemsInCart+1 };
+            return { ...state, isAdded: true, itemsInCart: state.itemsInCart + 1 };
         case "REMOVEFROMCART":
-            return { ...state, isAdded: false, itemsInCart: state.itemsInCart-1 };
-        // case "SETTITLE":
-        //     return { ...state, title: props.title }
-        // case "PRICEINCR":
-        //     {...state, state.priceTotal: state.priceTotal+1};
-        // case "PRICEDECR":
-        //     {...state, state.priceTotal: state.priceTotal-1};
+            return { ...state, isAdded: false, itemsInCart: state.itemsInCart - 1 };
+
 
         default:
             return state;

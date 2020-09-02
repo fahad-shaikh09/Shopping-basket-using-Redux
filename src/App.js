@@ -4,28 +4,28 @@ import './App.css';
 // import green from "./Images/green.png"
 // import red from "./Images/red.png"
 import DisplayShirts from "./components/DisplayShirts";
-import { useSelector } from "react-redux"
-
+import Cart from './components/Cart';
+import ShoppingContext from "./components/ShoppingContext"
 
 function App() {
-  let products = []
-  products = useSelector(state => state)
-  const itemsInCart = products[3].itemsInCart
-  
-  
+
+  let initialValues ={
+    ItemsInCart: 0,
+    AmountTotal: 0
+}
+
   return (
-    <div>
-      <h1>Shopping Basket</h1>
-      <h2>You have {itemsInCart} items in Cart!</h2>
+    <ShoppingContext.Provider value={initialValues}>
 
-      <div className="App">
-        <DisplayShirts />
+      <div>
+        <h1>Shopping Basket</h1>
+        <Cart />
+        <div className="App">
+          <DisplayShirts />
+        </div>
       </div>
+    </ShoppingContext.Provider>
 
-
-
-
-    </div>
   );
 }
 
